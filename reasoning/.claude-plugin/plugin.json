@@ -1,0 +1,8 @@
+{
+  "name": "reasoning",
+  "description": "Structured reasoning skills for Claude Code: atom-of-thought decomposes complex multi-part problems into independent and dependent sub-questions before answering; confess produces an honest audit of just-completed work, surfacing confidence levels, shortcuts, and unverified assumptions.",
+  "author": {
+    "name": "Benjamin Jackson",
+    "email": "ben@benjaminjackson.co"
+  }
+}
