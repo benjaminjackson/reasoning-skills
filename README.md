@@ -1,6 +1,6 @@
 # reasoning-skills
 
-A [Claude Code plugin marketplace](https://docs.claude.com/en/docs/claude-code/plugins) with one plugin, **reasoning**, shipping two skills: **atom-of-thought**, which decomposes complex problems before answering, and **confess**, which audits Claude's own work afterward.
+A [Claude Code plugin marketplace](https://docs.claude.com/en/docs/claude-code/plugins) with one plugin, **reasoning**, shipping three skills: **atom-of-thought**, which decomposes complex problems before answering; **confess**, which audits Claude's own work afterward; and **postmortem**, which turns a finished session into a root-cause analysis and proposed fixes.
 
 ## Installation
 
@@ -118,6 +118,28 @@ The paper's core move: have the model produce a second output after its main res
 
 This skill is a prompting-level adaptation of that idea, not the RL training. The paper trains honesty in with a separate reward signal; this skill runs the same after-the-fact, separately-judged confession as a self-audit prompt inside a conversation.
 
+## postmortem
+
+An engineering postmortem on a just-finished task or session: what was learned, where time was wasted, and what would make it go faster next time. Claude reconstructs a chronological account of the session (every user correction and wasted round-trip included), hands the facts to one well-briefed reviewer subagent, and relays back:
+
+1. A root cause, driven to ground with a 5-Whys chain, separated from contributing paper-cuts.
+2. A minimum-round-trip replay — the ideal sequence that reaches the same end state in the fewest actions.
+3. Proposed before→after edits to the skill, config, or code the friction lives in, each tied to a moment in the timeline.
+
+It ends with a checklist of the proposed fixes — pick the ones you want and Claude applies just those; the rest stay as proposals in the writeup.
+
+### Usage
+
+- **Manually**, as a slash command, after finishing (or abandoning) a piece of work:
+  ```
+  /reasoning:postmortem
+  ```
+- **Automatically**, on phrases like "postmortem," "retro," "what did we learn," "how could that have gone better," or "how do we do this more efficiently next time."
+
+### What to expect
+
+One reviewer subagent, not a panel — multiple review formats converge on the same findings, so the budget goes into the brief instead. Output is the root cause, the replay, and the proposed edits, ending with the single highest-leverage fix. Effort scales with the session: a ten-minute task gets a paragraph, not a subagent.
+
 ## Repo structure
 
 ```
@@ -126,6 +148,8 @@ reasoning/.claude-plugin/plugin.json # plugin manifest
 reasoning/skills/atom-of-thought/    # atom-of-thought skill
   SKILL.md
 reasoning/skills/confess/            # confess skill
+  SKILL.md
+reasoning/skills/postmortem/         # postmortem skill
   SKILL.md
 ```
 
