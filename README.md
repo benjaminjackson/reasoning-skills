@@ -4,29 +4,14 @@ A [Claude Code plugin marketplace](https://docs.claude.com/en/docs/claude-code/p
 
 ## Installation
 
-Inside a Claude Code session:
-
-### 1. Add the marketplace
-
 ```
-/plugin marketplace add benjaminjackson/reasoning-skills
-```
-
-### 2. Install the plugin
-
-```
-/plugin install reasoning@reasoning-skills
-```
-
-### 3. Confirm it installed
-
-```
-/plugin list
+claude plugin marketplace add benjaminjackson/reasoning-skills
+claude plugin install reasoning@reasoning-skills
 ```
 
 ## atom-of-thought
 
-Helps Claude catch the sub-parts and hidden dependencies that a one-shot answer misses, by decomposing a multi-part problem into sub-questions, solving them in dependency order, and recombining them into one answer, checked at the end against a direct, one-shot attempt. See **What to expect** below for the concrete shape this takes.
+Helps Claude catch the sub-parts and hidden dependencies that a one-shot answer misses, by decomposing a multi-part problem into sub-questions, solving them in dependency order, and recombining them into one answer, checked at the end against a direct, one-shot attempt.
 
 Each step needs only the current state, not the full history, so you never have to hold the whole problem in your head at once.
 
@@ -98,7 +83,7 @@ Once you run it, the work's quality is already locked in, so there's nothing to 
 
 ### Usage
 
-- **Manually**, as a slash command, right after Claude finishes a task:
+- **Explicitly**, as a slash command, right after Claude finishes a task:
   ```
   /reasoning:confess
   ```
@@ -130,7 +115,7 @@ It ends with a checklist of the proposed fixes — pick the ones you want and Cl
 
 ### Usage
 
-- **Manually**, as a slash command, after finishing (or abandoning) a piece of work:
+- **Explicitly**, as a slash command, after finishing (or abandoning) a piece of work:
   ```
   /reasoning:postmortem
   ```
@@ -139,19 +124,6 @@ It ends with a checklist of the proposed fixes — pick the ones you want and Cl
 ### What to expect
 
 One reviewer subagent, not a panel — multiple review formats converge on the same findings, so the budget goes into the brief instead. Output is the root cause, the replay, and the proposed edits, ending with the single highest-leverage fix. Effort scales with the session: a ten-minute task gets a paragraph, not a subagent.
-
-## Repo structure
-
-```
-.claude-plugin/marketplace.json      # marketplace manifest (this repo)
-reasoning/.claude-plugin/plugin.json # plugin manifest
-reasoning/skills/atom-of-thought/    # atom-of-thought skill
-  SKILL.md
-reasoning/skills/confess/            # confess skill
-  SKILL.md
-reasoning/skills/postmortem/         # postmortem skill
-  SKILL.md
-```
 
 ## Author
 
