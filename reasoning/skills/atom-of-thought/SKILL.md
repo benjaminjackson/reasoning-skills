@@ -1,6 +1,6 @@
 ---
 name: atom-of-thought
-description: Use when facing a complex, multi-part problem that would benefit from being broken into independent and dependent sub-questions before answering, rather than reasoned about as one tangled whole. Trigger on "atom of thought", "AoT", "break this down systematically", "decompose this problem", "atomic decomposition", or any complex analytical, planning, or reasoning task where a direct one-shot answer risks missing a sub-part or an implicit dependency between parts.
+description: Use when facing a complex, multi-part problem that would benefit from being broken into independent and dependent sub-questions before answering, rather than reasoned about as one tangled whole. Trigger on "atom of thought", "AoT", any request to "break down" or "break this down" (a problem, question, or decision), any request to reason or think "step by step", "decompose this problem", "atomic decomposition", or any complex analytical, planning, or reasoning task where a direct one-shot answer risks missing a sub-part or an implicit dependency between parts.
 ---
 
 When facing a complex problem, use this approach:
