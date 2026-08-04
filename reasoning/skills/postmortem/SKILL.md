@@ -60,11 +60,13 @@ agent to **read them** so its fixes quote real text instead of guessing:
 
 ## Step 3 — Launch ONE reviewer subagent
 
-Use a read-only reviewer agent if the install has one; otherwise
-`subagent_type: general-purpose` with a read-only contract stated in the brief
-("do not create, edit, or delete any file; run no state-changing command").
-Tell it **not** to use AskUserQuestion (it's a background agent; it should make
-reasonable assumptions and just write the postmortem). Hand it this brief:
+Use `subagent_type: reasoning:distinguished-engineer` — the read-only reviewer
+this plugin ships; it does critical chain-of-thought review. If that agent type
+isn't available, fall back to `general-purpose` with a read-only contract
+stated in the brief ("do not create, edit, or delete any file; run no
+state-changing command"). Tell it **not** to use AskUserQuestion (it's a
+background agent; it should make reasonable assumptions and just write the
+postmortem). Hand it this brief:
 
 ```
 You are doing an engineering postmortem of a just-finished work session. You

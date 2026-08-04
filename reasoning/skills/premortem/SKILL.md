@@ -66,8 +66,10 @@ premortem with nothing concrete to read returns platitudes.
 ## Step 2 — Round 1: blind imagination
 
 Launch 3 one-shot agents **in parallel** (one message, three Agent calls),
-`subagent_type: general-purpose` — prefer a read-only subagent type if the
-install has one. Each brief carries, verbatim:
+`subagent_type: general-purpose` — prefer a *generic* read-only subagent type
+if the install has one, but not `reasoning:distinguished-engineer`: its
+plan-reviewer persona and verdict format would override the lens framing.
+Each brief carries, verbatim:
 
 - **Read-only contract**: "You are read-only. Do not create, edit, or delete
   any file; run no state-changing command; do not use AskUserQuestion. Your
