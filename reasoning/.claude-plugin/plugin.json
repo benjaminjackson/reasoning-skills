@@ -1,5 +1,6 @@
 {
   "name": "reasoning",
+  "version": "1.0.0",
   "description": "Structured reasoning skills for Claude Code: atom-of-thought decomposes complex multi-part problems into independent and dependent sub-questions before answering; confess produces an honest audit of just-completed work, surfacing confidence levels, shortcuts, and unverified assumptions; postmortem turns a finished session into a root-cause analysis, a minimum-round-trip replay, and proposed fixes; premortem stress-tests a plan before execution by imagining it already failed, returning a ranked failure register, tripwires, and plan edits.",
   "author": {
     "name": "Benjamin Jackson",
