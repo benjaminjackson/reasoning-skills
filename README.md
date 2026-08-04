@@ -1,6 +1,6 @@
 # reasoning-skills
 
-A [Claude Code plugin marketplace](https://docs.claude.com/en/docs/claude-code/plugins) with one plugin, **reasoning**, shipping three skills: **atom-of-thought**, which decomposes complex problems before answering; **confess**, which audits Claude's own work afterward; and **postmortem**, which turns a finished session into a root-cause analysis and proposed fixes.
+A [Claude Code plugin marketplace](https://docs.claude.com/en/docs/claude-code/plugins) with one plugin, **reasoning**, shipping four skills: **atom-of-thought**, which decomposes complex problems before answering; **confess**, which audits Claude's own work afterward; **postmortem**, which turns a finished session into a root-cause analysis and proposed fixes; and **premortem**, which stress-tests a plan before execution by imagining it already failed.
 
 ## Installation
 
@@ -124,6 +124,36 @@ It ends with a checklist of the proposed fixes — pick the ones you want and Cl
 ### What to expect
 
 One reviewer subagent, not a panel — multiple review formats converge on the same findings, so the budget goes into the brief instead. Output is the root cause, the replay, and the proposed edits, ending with the single highest-leverage fix. Effort scales with the session: a ten-minute task gets a paragraph, not a subagent.
+
+## premortem
+
+A premortem on a plan that hasn't been executed yet: imagine it already failed, write the history of that failure, and harden the plan against what turns up. Claude first decides the shape — a small plan gets a one-paragraph premortem inline, no agents. For a plan that's expensive, wide, or hard to reverse, it launches three read-only agents in parallel (technical, assumptions, and process lenses), each writing its failure history blind to the others, then cross-examines: each agent attacks, ranks, and extends the merged list. You get back:
+
+1. A provenance line — what actually ran, so a degraded run can't dress up as a full one.
+2. The single risk most likely to kill the plan, first.
+3. A ranked failure register (capped at 7 rows) and up to 3 tripwires to watch during execution.
+4. Proposed plan edits, shown in full, then offered as a single checklist — pick the ones you want and Claude folds just those into the plan.
+
+### Usage
+
+- **Explicitly**, as a slash command, with a plan on the table:
+  ```
+  /reasoning:premortem
+  ```
+- **Automatically**, on phrases like "premortem," "pre-mortem," "poke holes in this plan," "imagine this failed," or "stress-test this plan." It requires an actual written plan plus an explicit ask — a rhetorical "what could go wrong?" won't (and shouldn't) fire it.
+
+### What to expect
+
+The blind first pass buys de-anchoring, not true independence — the agents share a model and a brief, so the skill treats agreement between lenses as one opinion stated three times, never as corroboration. Finished work is the postmortem's job, not this one's. Effort scales with stakes: the team only launches when the plan is hard to reverse and costs more than the premortem does.
+
+### Sources
+
+Gary Klein. **"Performing a Project Premortem."** Harvard Business Review, September 2007.
+[hbr.org](https://hbr.org/2007/09/performing-a-project-premortem)
+
+Deborah J. Mitchell, J. Edward Russo, Nancy Pennington. **"Back to the future: Temporal perspective in the explanation of events."** Journal of Behavioral Decision Making, 1989.
+
+The 1989 study found that prospective hindsight — imagining an outcome as if it had already occurred — increased the number and specificity of reasons participants generated for it; Klein's HBR article summarizes this as a ~30% improvement in identifying reasons for future outcomes, and his premortem turns it into a team exercise. This skill is a prompting-level adaptation, not a reproduction: it keeps prospective hindsight and the blind-then-share ordering, but a team of Claude agents can't reproduce a real room's diversity of information, and the technique's empirical support is thinner than the papers behind atom-of-thought and confess — it's a procedure, not a validated result.
 
 ## Author
 
