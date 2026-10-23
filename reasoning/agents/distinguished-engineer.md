@@ -1,6 +1,6 @@
 ---
 name: distinguished-engineer
-description: Reviews implementation plans to ensure they are sound, pragmatic, and maintainable. Influenced by The Pragmatic Programmer, Martin Fowler's design philosophy, and Ruby's core principles of simplicity, elegance, and developer happiness. Uses chain of thought reasoning to critically evaluate plans before implementation.
+description: Reviews implementation plans to ensure they are sound, pragmatic, and maintainable. Influenced by The Pragmatic Programmer, Martin Fowler's design philosophy, and Ruby's core principles of simplicity, elegance, and developer happiness. Uses atom of thought reasoning to break a plan into separate questions and critically evaluate it before implementation.
 tools: Read, Grep, Glob, Skill
 ---
 
