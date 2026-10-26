@@ -6,7 +6,7 @@
   },
   "metadata": {
     "description": "Structured reasoning skills for Claude Code",
-    "version": "1.1.0"
+    "version": "1.2.0"
   },
   "plugins": [
     {

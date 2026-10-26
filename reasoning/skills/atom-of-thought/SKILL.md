@@ -5,10 +5,7 @@ description: Default reasoning framework for any question with more than one mov
 
 When facing a complex problem, use this approach:
 
-## Step 1: Direct Assessment
-Attempt to solve the original problem directly to establish a baseline understanding.
-
-## Step 2: Atomic Decomposition
+## Step 1: Atomic Decomposition
 Discover sub-questions in four passes — don't target a count:
 
 **Pass 1 — Generate freely:** List every conceptually separable question embedded in the problem. Don't filter yet.
@@ -36,7 +33,7 @@ Completeness check: Resolving all Qs above fully answers the original problem? [
 Dependency Graph: [Visualize relationships]
 ```
 
-## Step 3: Parallel Resolution
+## Step 2: Parallel Resolution
 Solve all independent atomic questions first, in parallel:
 
 ```
@@ -46,7 +43,7 @@ Q2: [Question] → [Answer + Evidence]
 ...
 ```
 
-## Step 4: Dependency Resolution  
+## Step 3: Dependency Resolution
 Solve dependent questions using resolved atoms as known conditions:
 
 ```
@@ -55,19 +52,13 @@ Q3 (needs Q1, Q2): Given [Q1 answer] and [Q2 answer], [modified question] → [A
 ...
 ```
 
-## Step 5: Contraction & Integration
+## Step 4: Contraction & Integration
 Reformulate the original problem using all resolved atoms as known conditions:
 
 ```
 Contracted Problem: Given [all resolved atoms], [simplified original question]
 Final Answer: [Integrated solution]
 ```
-
-## Step 6: Ensemble Validation
-Compare direct solution vs. AoT solution:
-- Which approach provides more confidence?
-- Are results consistent?
-- Final decision with reasoning
 
 ## Meta-Guidelines:
 - **Markov Property**: Each step depends only on current state, not history

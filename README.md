@@ -11,7 +11,7 @@ claude plugin install reasoning@reasoning-skills
 
 ## atom-of-thought
 
-Helps Claude catch the sub-parts and hidden dependencies that a one-shot answer misses, by decomposing a multi-part problem into sub-questions, solving them in dependency order, and recombining them into one answer, checked at the end against a direct, one-shot attempt.
+Helps Claude catch the sub-parts and hidden dependencies that a one-shot answer misses, by decomposing a multi-part problem into sub-questions, solving them in dependency order, and recombining them into one answer.
 
 Each step needs only the current state, not the full history, so you never have to hold the whole problem in your head at once.
 
@@ -29,34 +29,28 @@ It's built for problems with structure to decompose: multiple sub-questions, som
 
 ### What to expect
 
-Output is longer and more structured than a normal reply. You'll see six sections, roughly in this shape:
+Output is longer and more structured than a normal reply. You'll see four sections, roughly in this shape:
 
 ```
-## Step 1: Direct Assessment
-[a quick baseline answer]
-
-## Step 2: Atomic Decomposition
+## Step 1: Atomic Decomposition
 Q1: ... — DEPENDENCIES: none
 Q2: ... — DEPENDENCIES: none
 Q3: ... — DEPENDENCIES: [Q1, Q2]
 Completeness check: ...
 
-## Step 3: Parallel Resolution
+## Step 2: Parallel Resolution
 Q1 → ...
 Q2 → ...
 
-## Step 4: Dependency Resolution
+## Step 3: Dependency Resolution
 Q3 (needs Q1, Q2): ...
 
-## Step 5: Contraction & Integration
+## Step 4: Contraction & Integration
 Contracted Problem: ...
 Final Answer: ...
-
-## Step 6: Ensemble Validation
-[direct vs. decomposed answer, and which one wins]
 ```
 
-Expect a trade: more tokens and more time per answer, for fewer missed sub-parts and dependencies on complex problems. On easy ones, that trade isn't worth it, which is why the skill triggers only on complex, multi-part problems.
+Expect a trade: more tokens and more time per answer, for fewer missed sub-parts and dependencies on complex problems. On easy ones, that trade isn't worth it, which is why the skill skips single-fact lookups, one-step edits, and casual chat.
 
 ### Paper
 
