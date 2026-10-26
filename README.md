@@ -23,7 +23,7 @@ The skill is based on ["Atom of Thoughts for Markov LLM Test-Time Scaling"](#pap
   ```
   /reasoning:atom-of-thought <your problem>
   ```
-- **Automatically**, when Claude judges a prompt warrants it: phrases like "atom of thought," "AoT," "break this down systematically," "decompose this problem," or "atomic decomposition" will trigger it, as will any tangled analytical, planning, or reasoning task.
+- **Automatically**, by default: Claude reaches for it on any question, decision, diagnosis, plan, or comparison that splits into separate sub-questions, without being asked. Phrases like "atom of thought," "AoT," "break this down," "step by step," "decompose this problem," or "atomic decomposition" also trigger it. Claude skips it only for single-fact lookups, one-step edits, and casual chat.
 
 It's built for problems with structure to decompose: multiple sub-questions, some of which depend on others. For a single-part question it's the wrong tool: you'll get the overhead of decomposition with nothing to decompose.
 
