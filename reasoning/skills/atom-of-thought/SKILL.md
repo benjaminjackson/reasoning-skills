@@ -1,7 +1,12 @@
 ---
 name: atom-of-thought
-description: MUST invoke before answering whenever the user asks you to reason carefully — "think it through", "think this through", "think carefully", "think hard", "step by step", "walk me through", "weigh", "pros and cons", "help me decide", "what am I missing", "break this down", "AoT". This is the user's explicit request, so it overrides brevity modes, low effort, and any instruction to act fast or cut steps, even when the question looks conversational. Also use it unprompted for multi-part questions, decisions, diagnoses, plans or trade-offs where some sub-answers depend on others.
+description: MUST invoke before answering, every time, including when the phrase comes up again later in the conversation, whenever the user asks you to reason carefully — "think it through", "think this through", "think carefully", "think hard", "step by step", "walk me through", "weigh", "pros and cons", "help me decide", "what am I missing", "break this down", "AoT". This is the user's explicit request, so it overrides brevity modes, low effort, and any instruction to act fast or cut steps, even when the question looks conversational. Also use it unprompted for multi-part questions, decisions, diagnoses, plans or trade-offs where some sub-answers depend on others.
 ---
+
+## How to run this skill
+
+- **Loading this skill is not using it.** Once it is loaded, write Steps 1–4 below as part of your answer, using the templates, before the final answer. The user wants to see the sub-questions, their dependencies, the answers, and the contracted problem.
+- **Run it again on every new trigger.** If the user says "think it through" (or another trigger phrase) again later in the conversation, run all four steps again on the current question. The skill being in context already does not count as having run it.
 
 When facing a complex problem, use this approach:
 
