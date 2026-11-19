@@ -1,6 +1,6 @@
 ---
 name: atom-of-thought
-description: Default reasoning framework for any question with more than one moving part. Use it by default, without being asked, whenever a question, decision, diagnosis, plan, comparison, trade-off, estimate, or "why/how/should" question could be split into separate sub-questions, especially when some answers depend on others. Trigger on any request to reason carefully, even when atom of thought is never named, including "think it through", "think this through", "think through", "think carefully", "think hard", "step by step", "reason through", "work through", "walk me through", "talk me through", "figure out", "weigh", "pros and cons", "help me decide", "what am I missing", "break down", "break this down", "unpack", "untangle", "decompose", "atom of thought", "AoT", or "atomic decomposition". When unsure, use it; skip it only for single-fact lookups, one-step edits, or casual chat.
+description: MUST invoke before answering whenever the user asks you to reason carefully — "think it through", "think this through", "think carefully", "think hard", "step by step", "walk me through", "weigh", "pros and cons", "help me decide", "what am I missing", "break this down", "AoT". This is the user's explicit request, so it overrides brevity modes, low effort, and any instruction to act fast or cut steps, even when the question looks conversational. Also use it unprompted for multi-part questions, decisions, diagnoses, plans or trade-offs where some sub-answers depend on others.
 ---
 
 When facing a complex problem, use this approach:
